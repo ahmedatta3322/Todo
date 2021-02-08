@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import UserRegister from "./API/Main";
 import { Form, Button } from "react-bootstrap";
-
-export default class User extends Component {
+import { Link } from "react-router-dom";
+export default class NewUser extends Component {
   state = {
     name: "",
     email: "",
@@ -15,11 +15,10 @@ export default class User extends Component {
   }
   UserData(target) {
     this.setState({ [target.target.name]: target.target.value });
-    console.log(this.state);
   }
   render() {
     return (
-      <Form onSubmit={this.RegisterUser.bind(this)}>
+      <Form onSubmit={this.RegisterUser.bind(this)} className="regform">
         <Form.Group>
           <Form.Label>Name</Form.Label>
           <Form.Control
@@ -54,8 +53,8 @@ export default class User extends Component {
             onChange={this.UserData.bind(this)}
           />
         </Form.Group>
-
         <Button type="submit"> Register </Button>
+        <Link to="/login"> Or login if you have account </Link>
       </Form>
     );
   }
