@@ -14,19 +14,24 @@ export default class App extends Component {
       <Router>
         <Switch>
           <Route exact path="/">
-          {sessionStorage.getItem("token") && <Todos></Todos>}
-          
-          {sessionStorage.getItem("token") == null &&  <LoginUser />}
-         
+            {sessionStorage.getItem("token") && <Todos></Todos>}
+
+            {sessionStorage.getItem("token") == null && <LoginUser />}
           </Route>
           <Route path="/todos">
-            <Todos />
+            {sessionStorage.getItem("token") && <Todos></Todos>}
+
+            {sessionStorage.getItem("token") == null && <LoginUser></LoginUser>}
           </Route>
-          <Route path="/register" >
-          {sessionStorage.getItem("token") && <Todos></Todos>}
-          
-          {sessionStorage.getItem("token") == null &&  <NewUser />}
-          
+          <Route path="/register">
+            {sessionStorage.getItem("token") && <Todos></Todos>}
+
+            {sessionStorage.getItem("token") == null && <NewUser />}
+          </Route>
+          <Route path="/login">
+            {sessionStorage.getItem("token") && <Todos></Todos>}
+
+            {sessionStorage.getItem("token") == null && <LoginUser />}
           </Route>
         </Switch>
       </Router>

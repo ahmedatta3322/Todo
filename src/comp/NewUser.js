@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import UserRegister from "./API/Main";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+
 export default class NewUser extends Component {
   state = {
     name: "",
